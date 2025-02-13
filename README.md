@@ -1,4 +1,4 @@
-# 📖 Study Buddy for Svetha 💜
+# 📖 Study Buddy 💜
 
 Welcome to **Study Buddy** – a personalized, fun, and interactive web app designed to help you stay motivated and productive while studying! 🧠✨
 
