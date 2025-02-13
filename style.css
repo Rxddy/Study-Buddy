@@ -191,6 +191,194 @@ input, textarea {
     border-radius: 20px; /* Rounds the corners */
 }
 
+/* To-Do Section */
+/* To-Do Section */
+.todo-section {
+    background-image: url('images/todo.jpg'); /* Title screen image */
+    background-size: cover; /* Full coverage */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* No repetition */
+    width: 80%; /* 80% width */
+    min-height: 80vh; /* At least 80% viewport height */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Vertically aligned */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center the text */
+    position: relative; /* Position the content relative to the section */
+    color: white; /* White text */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Text shadow */
+    font-family: 'Poppins', sans-serif; /* Modern font for title */
+    border-radius: 20px; /* Rounded corners */
+    padding: 40px; /* Padding inside the section */
+    box-sizing: border-box; /* Ensure padding is included in dimensions */
+    margin: 40px auto; /* Centers the section horizontally with margin */
+    
+}
+
+/* To-Do Subtitle */
+.todo-section .subtitle {
+    font-size: 1.2em; /* Subtitle font size */
+    font-weight: bold; /* Bold font */
+    background: linear-gradient(50deg, #b19cd9, #7a42f4); /* Gradient effect */
+    -webkit-background-clip: text; /* Clips gradient to text */
+    color: transparent; /* Transparent color */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Shadow for readability */
+}
+
+/* To-Do Heading */
+.todo-section h2 {
+    background: linear-gradient(50deg, #b19cd9, #000000); /* Gradient effect */
+    -webkit-background-clip: text; /* Clips gradient to text */
+    font-size: 2.5em; /* Increases font size for the heading */
+    font-weight: bold;
+    color: #9573d4; /* Light gradient color */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Adds a shadow for readability */
+    margin-bottom: 20px; /* Adds space below the heading */
+}
+
+/* To-Do List */
+.todo-list {
+    list-style: none; /* Removes bullet points */
+    padding-left: 0; /* Removes default padding */
+    margin-top: 20px;
+    font-weight: bolder;
+    font-size:large;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    max-height: 400px; /* Limits the height of the list */
+    overflow-y: auto; /* Adds vertical scrolling if the list is too long */
+    border-radius: 10px; /* Rounds the corners */
+    padding: 20px; /* Adds padding to the list */
+    box-sizing: border-box; /* Ensures padding is included in the total width/height */
+}
+
+/* To-Do List Items */
+.todo-list li {
+    background-color: #d3b5fdd3; /* Adds a semi-transparent background for list items */
+    border: 1px solid #cc9cff; /* Adds a border with a light purple color */
+    border-radius: 10px; /* Rounds the corners of list items */
+    padding: 10px; /* Padding inside each list item */
+    text-size-adjust: 10px;
+
+    margin-bottom: 10px; /* Adds space between items */
+    display: flex; /* Flexbox for alignment of content inside the list item */
+    justify-content: space-between; /* Aligns content to opposite sides */
+    align-items: center; /* Centers the content vertically */
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+
+/* Hover Effect for To-Do List Items */
+.todo-list li:hover {
+    background-color: rgba(200, 200, 255, 0.7); /* Changes the background color on hover */
+}
+
+/* To-Do Item Text */
+.todo-list li span {
+    font-size: 1.2em; /* Sets the font size for the item text */
+    color: #333; /* Darker text color for better readability */
+}
+
+/* To-Do Item Checkbox */
+.todo-list li input[type="checkbox"] {
+    margin-right: 10px; /* Adds space between checkbox and text */
+    cursor: pointer; /* Adds a pointer cursor when hovering over the checkbox */
+}
+
+/* Strike-through effect */
+.todo-list li.completed {
+    text-decoration: line-through;
+    opacity: 0.5; /* Makes the text look faded */
+    transition: opacity 0.5s ease-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+
+.todo-list li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Changes background color on hover */
+}
+
+/* Button Styles */
+.todo-button {
+    background-color: #7B68EE; /* Button background color */
+    color: white; /* Button text color */
+    padding: 12px 20px; /* Adds padding inside the button */
+    font-size: 1.2em; /* Increases button text size */
+    font-weight: bold; /* Makes the button text bold */
+    border: none; /* Removes default border */
+    border-radius: 5px; /* Rounds the button corners */
+    cursor: pointer; /* Changes cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out; /* Adds hover effect */
+}
+
+.todo-button:hover {
+    background-color: #6a4dde; /* Darkens the button color on hover */
+    transform: scale(1.1); /* Slightly enlarges the button */
+}
+
+.todo-button:active {
+    transform: scale(0.95); /* Makes the button shrink when clicked */
+}
+
+.delete-btn-task {
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn-task:hover {
+    background-color: darkred;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+/* Button to add todos */
+.todo-button {
+    background-color: #8a2be2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.todo-button:hover {
+    background-color: #6a1db8;
+}
+
+/* Task Input Styling */
+#taskInput {
+    font-size: 1.2em;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 2px solid #cc9cff;
+    background-color: #0d1b2a; /* Dark background to match the theme */
+    color: white;
+    margin-bottom: 20px;
+}
+
+#taskInput::placeholder {
+    color: #a6a6a6; /* Lighter color for placeholder text */
+}
+
+/* Completed Task Styling */
+.completed {
+    text-decoration: line-through; /* Strikes through the text */
+    color: #888; /* Changes text color to gray */
+}
+
 
 /* Navbar */
 .navbar {
@@ -232,6 +420,117 @@ input, textarea {
     text-align: center; /* Centers the timer text */
 }
 
+.front, .back {
+    color: #333;  /* Set text color to dark gray */
+    font-size: 18px;  /* Adjust text size if needed */
+}
+
+/* Flashcards section */
+.flashcards-section {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+    color: white; /* Text color */
+    padding: 40px 60px; /* Padding around the section */
+    width: 80%; /* Ensures it's not too wide */
+    min-height: 60vh; /* Sets the minimum height */
+    margin: 30px auto; /* Centers the section */
+    border-radius: 15px; /* Rounds the corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Aligns content vertically */
+    align-items: center; /* Centers content horizontally */
+    justify-content: flex-start; /* Aligns items at the top */
+}
+
+/* Flashcards title */
+.flashcards-section h1 {
+    font-size: 2.5em; /* Font size for the heading */
+    font-weight: bold;
+    color: #b19cd9; /* Light gradient color */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Shadow for readability */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+
+/* Flashcards container */
+.flashcards-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Create a responsive grid */
+    gap: 20px; /* Add spacing between cards */
+    padding: 20px;
+    width: 100%; /* Ensure it takes up full width */
+    flex-wrap: wrap;
+    justify-content: center;  /* Centers the flashcards horizontally */
+}
+
+.flash-card-list li {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background for list items */
+    border: 1px solid #cc9cff; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px;
+    margin: 10px 0; /* Space between items */
+    display: flex; /* Flex layout */
+    justify-content: space-between; /* Space between text and buttons */
+    align-items: center;
+    font-size: 1.2em; /* Adjusted font size */
+    color: #f4e1ff; /* Light text color */
+}
+
+.flash-card-list li.completed {
+    text-decoration: line-through; /* Strike-through for completed */
+    opacity: 0.5; /* Faded effect */
+    transition: opacity 0.5s ease-out;
+}
+/* Individual flashcard */
+.flashcard {
+    position: relative;  /* This is needed to position the delete button */
+    margin-bottom: 10px;  /* Add some space between flashcards */
+    padding: 15px;  /* Add more padding for a larger area */
+    border: 1px solid #580072;
+    border-radius: 5px;
+    background-color: #cc9cff;  /* Set background color to white */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Add a slight shadow for depth */
+}
+
+.delete-btn {
+    position: absolute;  /* Position it relative to the flashcard */
+    bottom: 30px;
+    right: 210px; /* Change right to left for top-left corner */
+    background: none;
+    border: none;
+    color: red;
+    font-size: 20px;  /* Increase font size for better visibility */
+    cursor: pointer;
+    font-weight: lighter;
+    padding: 0;  /* Remove extra padding */
+}
+
+.delete-btn:hover {
+    background-color: #5a496e; /* Changes the button background color on hover */
+    transform: scale(1.05); /* Slightly enlarges the text on hover for a gentle effect */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Enhances shadow on hover */
+
+}
+
+/* Flashcard hover effect */
+.flashcard:hover {
+    transform: scale(1.05); /* Slightly scale up the card */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Increase the shadow */
+}
+
+/* Flashcard title */
+.flashcard h2 {
+    font-size: 1.5em; /* Larger font size for the title */
+    font-weight: bold; /* Make title bold */
+    margin-bottom: 15px; /* Space between title and content */
+}
+
+/* Flashcard content */
+.flashcard p {
+    font-size: 1.1em; /* Set a comfortable font size for the content */
+    line-height: 1.5; /* Increase line spacing for readability */
+}
+
 /* Buttons */
 button {
     background-color: #A06CD5; /* Sets the button background color */
@@ -267,6 +566,7 @@ input:focus {
     border-color: #8E44AD; /* Changes the border color on focus */
 }
 
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .full-page {
@@ -297,4 +597,15 @@ input:focus {
         font-size: 1.2em;
         margin: 0 10px;
     }
+}
+
+
+input[type="text"] {
+    width: 100%;  /* Makes the input field take up the full width of the container */
+    height: 40px;  /* Increases the height of the input field */
+    font-size: 18px;  /* Increases the font size */
+    padding: 10px;  /* Adds padding inside the input field */
+    margin: 10px 0;  /* Adds some space above and below the input field */
+    border: 1px solid #ccc;  /* Adds a light border to the input field */
+    border-radius: 4px;  /* Adds rounded corners to the input field */
 }
