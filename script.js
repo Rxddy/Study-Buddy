@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "I BELIEVE IN MY PROBOSCIS MONKEY",
             "Don't stop until you're proud. Every study session counts towards your big goals!",
             "My baby is the smartest person i know, she definitely got this",
-            "PADIPU MOOKIUM SVETHAA",
+            "PADIPU MOOKIUM",
             "You have the power to achieve whatever you dream of your hard work will get you there."
         ];
 
