@@ -1,78 +1,176 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Timer functionality
-    const timerDisplay = document.getElementById('timerDisplay');  // Get the element where the timer will be displayed
-    const startTimerBtn = document.getElementById('startTimer');   // Get the "Start Timer" button
-    const resetTimerBtn = document.getElementById('resetTimer');   // Get the "Reset Timer" button
-    let timerInterval;  // Declare a variable to store the interval ID for the timer
-    
+    const timerDisplay = document.getElementById('timerDisplay');
+    const startTimerBtn = document.getElementById('startTimer');
+    const resetTimerBtn = document.getElementById('resetTimer');
+    let timerInterval;
+
     // Start Timer Button
     startTimerBtn.addEventListener('click', function () {
-        console.log('Start Timer button clicked');  // Log when the start button is clicked
+        const hoursInput = document.getElementById('hours');
+        const minutesInput = document.getElementById('minutes');
+        const secondsInput = document.getElementById('seconds');
         
-        const hoursInput = document.getElementById('hours');  // Get the input for hours
-        const minutesInput = document.getElementById('minutes');  // Get the input for minutes
-        const secondsInput = document.getElementById('seconds');  // Get the input for seconds
-        
-        // Calculate the total time in seconds based on the inputs for hours, minutes, and seconds
         let totalTimeInSeconds = parseInt(hoursInput.value) * 3600 + parseInt(minutesInput.value) * 60 + parseInt(secondsInput.value);
-    
-        // If there's an existing interval, clear it before starting a new one
+
         if (timerInterval) {
             clearInterval(timerInterval); 
         }
-    
-        // Start the interval to update the timer every second
+
         timerInterval = setInterval(function () {
-            // If there's still time left, decrement it by 1 second
             if (totalTimeInSeconds > 0) {
-                totalTimeInSeconds--;  // Decrease the total time by one second
-                const hours = Math.floor(totalTimeInSeconds / 3600);  // Calculate the remaining hours
-                const minutes = Math.floor(totalTimeInSeconds / 60 / 60);  // Calculate the remaining minutes
-                const seconds = totalTimeInSeconds % 60;  // Calculate the remaining seconds
-                timerDisplay.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`; // Update the display in HH:MM:SS format
+                totalTimeInSeconds--;
+                const hours = Math.floor(totalTimeInSeconds / 3600);
+                const minutes = Math.floor(totalTimeInSeconds / 60 % 60);
+                const seconds = totalTimeInSeconds % 60;
+                timerDisplay.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
             } else {
-                clearInterval(timerInterval);  // Stop the timer when it reaches zero
-                const timerSound = document.getElementById('timer-sound');  // Access the audio element
-                timerSound.play();  // Play the sound when the timer reaches zero
+                clearInterval(timerInterval);
+                const timerSound = document.getElementById('timer-sound');
+                timerSound.play();
             }
-        }, 1000);  // The setInterval function runs every 1000 milliseconds (1 second)
+        }, 1000);
     });
-    
+
     // Reset Timer Button
     resetTimerBtn.addEventListener('click', function () {
-        console.log('Reset Timer button clicked');  // Log when the reset button is clicked
-        clearInterval(timerInterval);  // Stop any active timer
-        document.getElementById('hours').value = 0;  // Reset the hours input to 0
-        document.getElementById('minutes').value = 0;  // Reset the minutes input to 0
-        document.getElementById('seconds').value = 0;  // Reset the seconds input to 0
-        timerDisplay.textContent = '00:00:00';  // Reset the timer display to 00:00
+        clearInterval(timerInterval);
+        document.getElementById('hours').value = 0;
+        document.getElementById('minutes').value = 0;
+        document.getElementById('seconds').value = 0;
+        timerDisplay.textContent = '00:00:00';
     });
 
     // Motivation functionality
-    const motivateBtn = document.getElementById('motivateBtn');  // Get the "Motivate" button
-    const motivationText = document.getElementById('motivationText');  // Get the element where the motivational quote will be displayed
-    
+    const motivateBtn = document.getElementById('motivateBtn');
+    const motivationText = document.getElementById('motivationText');
+
     motivateBtn.addEventListener('click', function () {
-        console.log('Motivate button clicked');  // Log when the motivate button is clicked
-        
-        // Array of motivational quotes
         const quotes = [
-            "Keep going, you're doing great!", 
-            "Don't stop until you're proud.", 
+            "Keep going, you're doing great!",
+            "Don't stop until you're proud.",
             "Believe in yourself, and all that you are.",
             "Every small step you take brings you closer to your dreams. Keep going, you've got this!",
-            "Your hard work will pay off stay focused, stay determined, I BELIEVEEVEVE",
+            "Your hard work will pay off stay focused, stay determined, I BELIEVE",
             "The effort you're putting in today will build the future you deserve tomorrow.",
-            "YOU GOTTA WORK HARDER TO MAKE ME A HOUSE HUSBNAD",
+            "YOU GOTTA WORK HARDER TO MAKE ME A HOUSE HUSBAND",
             "MAKE LORD FARQUAD PROUD",
             "I BELIEVE IN MY PROBOSCIS MONKEY",
             "Don't stop until you're proud. Every study session counts towards your big goals!",
-            "My baby is the smartest person i know, she definitely got this",
-            "PADIPU MOOKIUM",
-            "You have the power to achieve whatever you dream of your hard work will get you there."
+            "My baby is the smartest person I know, she definitely got this",
+            "PADIPU MOOKIUMMMM",
+            "You have the power to achieve whatever you dream of, your hard work will get you there."
         ];
 
-        const randomIndex = Math.floor(Math.random() * quotes.length);  // Generate a random index to pick a random quote
-        motivationText.textContent = quotes[randomIndex];  // Display the randomly selected quote in the motivationText element
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        motivationText.textContent = quotes[randomIndex];
     });
+
+    // Flashcard functionality
+    let flashcards = [];
+
+    // Function to add a flashcard
+    function addFlashcard() {
+        const question = document.getElementById('question').value.trim();
+        const answer = document.getElementById('answer').value.trim();
+
+        if (question && answer) {
+            flashcards.push({ question, answer });
+            renderFlashcards();
+            document.getElementById('question').value = '';
+            document.getElementById('answer').value = '';
+        } else {
+            alert('Please enter both a question and an answer.');
+        }
+    }
+
+    // Function to render all flashcards
+    function renderFlashcards() {
+        const container = document.getElementById('flashcards-container');
+        container.innerHTML = ''; // Clear the container before rendering
+
+        flashcards.forEach((card, index) => {
+            const flashcard = document.createElement('div');
+            flashcard.classList.add('flashcard');
+
+            const front = document.createElement('div');
+            front.classList.add('front');
+            front.textContent = card.question;
+
+            const back = document.createElement('div');
+            back.classList.add('back');
+            back.textContent = card.answer;
+            back.style.display = 'none';
+
+            // Create the delete button for each flashcard
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'X';
+            deleteBtn.classList.add('delete-btn');
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent triggering flashcard flip on delete click
+                flashcards.splice(index, 1); // Remove the flashcard from the array
+                renderFlashcards(); // Re-render the flashcards
+            });
+
+            flashcard.appendChild(front);
+            flashcard.appendChild(back);
+            flashcard.appendChild(deleteBtn);
+
+            flashcard.addEventListener('click', () => {
+                front.style.display = front.style.display === 'none' ? 'block' : 'none';
+                back.style.display = back.style.display === 'none' ? 'block' : 'none';
+            });
+
+            container.appendChild(flashcard);
+        });
+    }
+
+    // Listen for the Add Flashcard button click
+    document.getElementById('addFlashcardBtn').addEventListener('click', addFlashcard);
+
+    // To-Do functionality
+    const taskInput = document.getElementById('taskInput');  // Get the task input field
+    const todoList = document.getElementById('todoList');  // Get the unordered list for tasks
+
+    // Function to add a task
+
+    function addTask() {
+        const taskText = taskInput.value.trim();  // Get the value of the task input and trim any excess spaces
+        
+        if (taskText) {
+            // Create a new list item for the task
+            const listItem = document.createElement('li');
+            listItem.textContent = taskText;  // Set the text of the list item to the task
+    
+            // Create a delete button for the task
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'X';
+            deleteBtn.classList.add('delete-btn-task');
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();  // Prevent the click from bubbling up to the list item
+                listItem.classList.add('fade-out');  // Add fade-out effect
+    
+                // Wait for the fade-out transition to complete
+                setTimeout(() => {
+                    todoList.removeChild(listItem);
+                }, 1000);  // This should match the fade-out timing
+            });
+            
+            // Append the delete button to the list item
+            listItem.appendChild(deleteBtn);
+            
+            // Add the list item to the to-do list
+            todoList.appendChild(listItem);
+    
+            // Clear the input field after adding the task
+            taskInput.value = '';
+        } else {
+            alert('Please enter a task before adding.');
+        }
+    }
+    
+
+    // Listen for the Add Task button click
+    const addTaskBtn = document.getElementById('addTaskBtn');  // Target the correct button
+    addTaskBtn.addEventListener('click', addTask);
 });
