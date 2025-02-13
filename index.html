@@ -19,6 +19,8 @@
     <nav class="navbar">
         <a href="#timer" class="nav-link">Timer</a>
         <a href="#motivation" class="nav-link">Motivation</a>
+        <a href="#flashcards" class="nav-link">Flash Cards</a>
+        <a href="#todo"class="nav-link">To-Do</a>
     </nav>
 
     <!-- Timer Section -->
@@ -27,7 +29,7 @@
         <div class="timer-section">
             <h1>Study Timer</h1>
             <br>
-            <lable for="hours">Hours:</lable>
+            <label for="hours">Hours:</label>
             <input type="number" id="hours" min="0" max="24" value="0">
             <label for="minutes">Minutes:</label>
             <input type="number" id="minutes" min="0" max="60" value="0">
@@ -46,14 +48,40 @@
         <div class="overlay"></div> <!-- Dark overlay -->
         <div class="buddy-section">
             <h1 class="motivation-subtext">Motivational Button</h1>
-            <p >Here's a cute button I wonder what it'll say when you click it?</p>
+            <p>Here's a cute button I wonder what it'll say when you click it?</p>
             <button id="motivateBtn">Get Motivation</button>
-            <p class=motivation-text id="motivationText"></p>
+            <p class="motivation-text" id="motivationText"></p>
         </div>
     </div>
 
-    <!-- Three.js 3D Duck -->
-    <div id="three-container"></div>
+    <!-- Flashcards Section-->
+
+    <div id="flashcards" class="flashcards-section">
+        <h1>Flashcards</h1>
+        <div class="flashcards-container" id="flashcards-container"></div>
+
+        <div class="flashcard-form">
+            <label for="question">Question:</label>
+            <input type="text" id="question" placeholder="Enter question" />
+            
+            <label for="answer">Answer:</label>
+            <input type="text" id="answer" placeholder="Enter answer" />
+            <button id="addFlashcardBtn">Add Flashcard</button>
+        </div>
+    </div>
+
+
+    <div class="todo-section" id="todo">
+        <h2>To-Do List</h2>
+        <div class="todo-form">
+            <!-- Input for new tasks -->
+            <input type="text" id="taskInput" placeholder="Enter a new task" />
+            <!-- Button to add tasks -->
+            <button id="addTaskBtn">Add Task</button>
+        </div>
+        <!-- Unordered list for task items -->
+        <ul class="todo-list" id="todoList"></ul>
+    </div>      
 
     <!-- Link to external script.js where you load the 3D model -->
     <script src="script.js"></script>
