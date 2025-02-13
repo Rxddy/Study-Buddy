@@ -1,0 +1,300 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling when clicking on links that navigate to sections */
+}
+
+/* Global styles */
+body {
+    margin: 0; /* Removes default margin from body */
+    padding: 0; /* Removes default padding from body */
+    background-color: #0d1b2a; /* Sets the background color of the page */
+    font-family: Arial, sans-serif; /* Sets the font family for the body text */
+    color: white; /* Sets the text color to white */
+    cursor: url('cursor/normal.cur'), auto;
+}
+
+/* Hover cursor for interactive elements */
+button, a, .interactive {
+    cursor: url('cursor/interactive.cur'), pointer;
+}
+
+/* Active (click and drag) cursor */
+body:active {
+    cursor: url('cursor/Alternative2.cur'), grabbing;
+}
+
+input, textarea {
+    cursor: url('cursor/vertical.cur'), text;
+}
+
+
+/* Full-page sections */
+.full-page {
+    width: 100%; /* Ensures the section takes up the full width of the screen */
+    min-height: 100vh; /* Sets the minimum height to fill the entire viewport height */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns children (like headings or paragraphs) in a vertical column */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    position: relative; /* Positions children elements relative to this container */
+    padding: 80px 0; /* Adds vertical padding around the section */
+    box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+}
+
+/* Dark transparent overlay for sections (removed for title-screen) */
+.overlay {
+    position: absolute; /* Positions the overlay absolutely relative to its parent */
+    width: 100%; /* Makes the overlay fill the entire width */
+    height: 100%; /* Makes the overlay fill the entire height */
+    background: rgba(0, 0, 0, 0.4); /* Sets a black overlay with 50% opacity */
+    top: 0; /* Positions the overlay at the top of the parent container */
+    left: 0; /* Positions the overlay at the left of the parent container */
+}
+
+/* Title screen (removed overlay) */
+.title-screen {
+    background-image: url('images/Background1.png'); /* Sets a background image for the title screen */
+    background-size: cover; /* Ensures the background image covers the whole screen */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 100%; /* Makes the title screen full-width */
+    min-height: 100vh; /* Makes the title screen at least the height of the viewport */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns children (like text) vertically */
+    justify-content: center; /* Centers the content vertically */
+    align-items: center; /* Centers the content horizontally */
+    text-align: center; /* Centers the text inside the title screen */
+    position: relative; /* Positions the title content relative to the screen */
+    color: white; /* Sets the text color to white */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Adds a shadow to the text for better readability */
+    font-family: 'Poppins', sans-serif; /* Sets the modern font for the title */
+}
+
+/* Ensure title screen doesn't have the overlay effect */
+.title-screen .overlay {
+    display: none; /* Hides the overlay for the title screen */
+}
+
+/* Gradient for title screen text */
+.title-screen h1 {
+    font-size: 4.5em; /* Sets the font size for the title */
+    font-weight: bold; /* Makes the title bold */
+    background: linear-gradient(90deg,#7B68EE, #483D8B); /* Adds a gradient effect to the text */
+    -webkit-background-clip: text; /* Clips the gradient to the text (only in webkit browsers) */
+    color: transparent; /* Makes the text color transparent so the gradient is visible */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); /* Adds a stronger shadow for readability */
+}
+
+/* Gradient for subtitle text */
+.subtitle {
+    font-size: 1.2em; /* Sets the font size for the title */
+    font-weight: bold; /* Makes the title bold */
+    background: linear-gradient(50deg, #b19cd9, #7a42f4);/* Adds a gradient effect to the text */
+    -webkit-background-clip: text; /* Clips the gradient to the text (only in webkit browsers) */
+    color: transparent; /* Makes the text color transparent so the gradient is visible */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Adds a stronger shadow for readability */
+}
+
+/* Motivation text styling */
+.motivation-text {
+    font-size: 1.5em; /* Sets the font size */
+    font-weight: 300; /* Sets the font weight */
+    color: #e0d4fc;; /* Sets the text color */
+    text-align:center ; /* Centers the text */
+    margin-top: 20px; /* Adds spacing above the element */
+    line-height: 1.6; /* Increases the line spacing for readability */
+    padding: 15px; /* Adds padding around the element */
+    max-width: 90%; /* Limits the width of the element to 90% of its parent */
+}
+
+.motivation-subtext {
+    font-size: 2em; /* Sets the font size for the title */
+    font-weight: bold; /* Makes the title bold */
+    background: linear-gradient(50deg, #b19cd9, #7a42f4);/* Adds a gradient effect to the text */
+    -webkit-background-clip: text; /* Clips the gradient to the text (only in webkit browsers) */
+    color: transparent; /* Makes the text color transparent so the gradient is visible */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Adds a stronger shadow for readability */
+}
+
+
+/* Timer section */
+.timer-section {
+    /* background-image: url('images/TimerBackground.jpg'); /* Sets a background image for the timer section */
+    /* background: linear-gradient(135deg, #8A2BE2, #8A2BE2, #2E1A47); /* Soft pink and lavender gradient */
+    background-size: cover; /* Ensures the background covers the full section */
+    background-position: center; /* Centers the background */
+    background-repeat: no-repeat; /* Prevents repeating the background */
+    width: 80%; /* Sets the width of the section to 80% */
+    min-height: 80vh; /* Makes the section at least 80% of the viewport height */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Centers the text */
+    padding-bottom: 100px; /* Adds padding around the content */
+    box-sizing: border-box; /* Includes padding in width/height calculation */
+    position: relative; /* Positions content relative to the section */
+    border-radius: 30px; /* Rounds the corners */
+}
+
+/* The pseudo-element for the blurred background */
+.timer-section::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/TimerBackground.jpg'); /* Same background as the section */
+    background-size: cover; /* Ensures the pseudo-element background also covers the section */
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1px); /* Blur the background */
+    z-index: -1; /* Position the blurred element behind the content */
+    border-radius: 30px; /* Rounds the corners */
+}
+
+.timer-section h1 {
+    font-size: 3.2em; /* Larger font size for a gentle, bold impact */
+    font-family: 'Georgia', serif; /* A sophisticated serif font */
+    font-weight: 500; /* Lighter font weight for an elegant feel */
+    background: linear-gradient(135deg, #5A3E85, #B19CD9); /* Soft gradient background */
+    border-radius: 50px; /* Smooth, rounded corners for a softer look */
+    color: white; /* White text for a clean contrast */
+    text-align: center; /* Centered text */
+    margin-top: 20px; /* Keeps the spacing above the element */
+    line-height: 1.3; /* Slightly increased line height for more breathing room */
+    padding: 20px 40px; /* Padding for comfort around the text */
+    max-width: 80%; /* Limits width to make the text more compact */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    letter-spacing: 2px; /* Adds a subtle space between letters for refinement */
+    text-transform: capitalize; /* Capitalizes the first letter of each word */
+    transition: all 0.3s ease-in-out; /* Smooth transition for interactive hover effects */
+}
+
+/* Buddy section */
+.buddy-section {
+    background-image: url('images/buddy-section.webp'); /* Sets a background image for the buddy section */
+    background-size: cover; /* Ensures the background covers the full section */
+    background-position: center; /* Centers the background */
+    background-repeat: no-repeat; /* Prevents repeating the background */
+    width: 80%; /* Sets the width of the section to 80% */
+    min-height: 80vh; /* Makes the section at least 80% of the viewport height */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Centers the text */
+    padding: 40px; /* Adds padding around the content */
+    box-sizing: border-box; /* Includes padding in width/height calculation */
+    position: relative; /* Positions content relative to the section */
+    border-radius: 20px; /* Rounds the corners */
+}
+
+
+/* Navbar */
+.navbar {
+    position: fixed; /* Fixes the navbar at the top of the page */
+    top: 0; /* Aligns the navbar at the top */
+    left: 0; /* Aligns the navbar at the left */
+    width: 100%; /* Makes the navbar full width */
+    background: transparent; /* Sets a semi-transparent black background */
+    padding: 15px 0; /* Adds padding inside the navbar */
+    text-align: center; /* Centers the navbar text */
+    z-index: 1000; /* Ensures the navbar is above other elements */
+}
+
+.nav-link {
+    color: #cc9cff; /* Sets the text color to white */
+    font-size: 1.5em; /* Sets the font size */
+    font-weight: bold;
+    text-decoration:dashed ; /* Removes underline from links */
+    margin: 0 20px; /* Adds horizontal spacing between links */
+    transition: all 0.3s ease; /* Adds a smooth transition for hover effects */
+}
+
+.nav-link:hover {
+    color: #C09EE6; /* Changes the link color on hover */
+}
+
+#timer {
+    scroll-margin-bottom: 100px; /* Adjust this value based on your header height */
+    padding-bottom: 100px;
+  }
+
+/* Timer Display */
+#timerDisplay {
+    font-size: 5em; /* Sets the font size for the timer */
+    font-weight: bold; /* Makes the timer bold */
+    color: #F4E1FF; /* Sets the timer text color */
+    margin-top: 20px; /* Adds spacing above the timer */
+    width: 100%; /* Makes the timer display full-width */
+    text-align: center; /* Centers the timer text */
+}
+
+/* Buttons */
+button {
+    background-color: #A06CD5; /* Sets the button background color */
+    color: white; /* Sets the button text color */
+    border: none; /* Removes the border from the button */
+    padding: 15px 20px; /* Adds padding inside the button */
+    margin: 20px; /* Adds margin around the button */
+    border-radius: 8px; /* Rounds the corners of the button */
+    font-size: 1.2em; /* Sets the button font size */
+    transition: 0.3s; /* Adds a smooth transition effect */
+}
+
+button:hover {
+    background-color: #5a496e; /* Changes the button background color on hover */
+    transform: scale(1.05); /* Slightly enlarges the text on hover for a gentle effect */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Enhances shadow on hover */
+}
+
+/* Timer Input */
+input {
+    width: 60px; /* Sets the width of the input field */
+    text-align: center; /* Centers the text inside the input */
+    font-size: 16px; /* Sets the font size */
+    margin: 10px; /* Adds margin around the input */
+    padding: 5px; /* Adds padding inside the input */
+    border: 2px solid #C09EE6; /* Adds a border with a specific color */
+    border-radius: 5px; /* Rounds the corners of the input */
+    background-color: #EEE2FF; /* Sets the background color */
+}
+
+input:focus {
+    outline: none; /* Removes the default outline on focus */
+    border-color: #8E44AD; /* Changes the border color on focus */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .full-page {
+        padding: 40px 0;
+    }
+
+    .title-screen h1 {
+        font-size: 3.5em;
+    }
+
+    .timer-section h1 {
+        font-size: 2.5em;
+    }
+
+    .motivation-text {
+        font-size: 1.2em;
+    }
+
+    .buddy-section {
+        width: 100%;
+    }
+
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .nav-link {
+        font-size: 1.2em;
+        margin: 0 10px;
+    }
+}
