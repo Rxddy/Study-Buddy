@@ -53,12 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "Every small step you take brings you closer to your dreams. Keep going, you've got this!",
             "Your hard work will pay off stay focused, stay determined, I BELIEVE",
             "The effort you're putting in today will build the future you deserve tomorrow.",
-            "YOU GOTTA WORK HARDER TO MAKE ME A HOUSE HUSBAND",
-            "MAKE LORD FARQUAD PROUD",
-            "I BELIEVE IN MY PROBOSCIS MONKEY",
             "Don't stop until you're proud. Every study session counts towards your big goals!",
             "My baby is the smartest person I know, she definitely got this",
-            "PADIPU MOOKIUMMMM",
             "You have the power to achieve whatever you dream of, your hard work will get you there."
         ];
 
