@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
             "Your hard work will pay off stay focused, stay determined, I BELIEVE",
             "The effort you're putting in today will build the future you deserve tomorrow.",
             "Don't stop until you're proud. Every study session counts towards your big goals!",
-            "My baby is the smartest person I know, she definitely got this",
             "You have the power to achieve whatever you dream of, your hard work will get you there."
         ];
 
